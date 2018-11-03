@@ -53,14 +53,14 @@ public class Sorting {// all sorting method
 		for(int i=0; i<len-1;i++) {//get pos of first  number
 			int minValue = i;//position of min number
 			for(int j=i+1;j<len;j++){//get pos of second number (always behind first one)
-		    		if(arr[j] < arr[minValue]){//compare
-		    			minValue = j;
-		    		}
+		    	if(arr[j] < arr[minValue]){//compare
+		    		minValue = j;
+		    	}
+		    	int n = arr[minValue]; //change position
+		    arr[minValue] = arr[i]; 
+		    arr[i] = n;
 		    }
 		}
-//		int n = arr[minValue]; //change position
-//	    arr[minValue] = arr[i]; 
-//	    arr[i] = n;
 		return arr; 
 		
 	}
@@ -189,20 +189,20 @@ public class Sorting {// all sorting method
           c[i]=b[w];
           w++;
         }
-        int d[]=b;//Initialize array d
-        Random rand = new Random();
-        for (int i = 0; i < b.length*0.1; i++) {// 0.1*length of sort
-            int ran1 = rand.nextInt(b.length);
-            int ran2 = rand.nextInt(b.length);
-            int temp = d[ran1];
-            d[ran1] = d[ran2];//change pos 
-            d[ran2] = temp;
-        }
+//        int d[]=b;//Initialize array d
+//        Random rand = new Random();
+//        for (int i = 0; i < b.length*0.1; i++) {// 0.1*length of sort
+//            int ran1 = rand.nextInt(b.length);
+//            int ran2 = rand.nextInt(b.length);
+//            int temp = d[ran1];
+//            d[ran1] = d[ran2];//change pos 
+//            d[ran2] = temp;
+//        }
         	PrintWriter wri = null;
      
         
         	
-        int[][] arr= {a,b,c,d};
+        int[][] arr= {a,b,c};
         int cou=0;//move through a to d
         
         // TODO: Generate 3 other arrays, b, c, d where
@@ -298,20 +298,22 @@ public class Sorting {// all sorting method
                 e.printStackTrace();
             }
         }
-        if (cou == 3) {//same as above
-            arrayUsed = "d";
-            try{
-                File file = new File("d.txt");
-                wri = new PrintWriter(file);
-                for(int i=0;i<d.length;i++){
-                    wri.println(d[i]);
-                }
-                wri.close();
-            }
-            catch(IOException e) {
-                e.printStackTrace();
-            }
-        }
+//        if (cou == 3) {//same as above
+//            arrayUsed = "d";
+//            try{
+//                File file = new File("d.txt");
+//                wri = new PrintWriter(file);
+//                for(int i=0;i<d.length;i++){
+//                    wri.println(d[i]);
+//                }
+//                wri.close();
+//            }
+//            catch(IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
+        
+        
         StdOut.printf("%s %s %8.1f   %s  %s  %s\n", algorithmUsed, arrayUsed, time, timeStamp, netID, args[0]);
         cou++;//move to next array
         }
